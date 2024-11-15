@@ -42,3 +42,7 @@ header {
     }
   }
 }
+
+.hide {
+  display: none;
+}

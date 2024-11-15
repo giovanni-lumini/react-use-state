@@ -1,12 +1,16 @@
+import languages from "./assets/languages"
 import { useState } from 'react'
 import './App.css'
-import languages from './assets/languages';
-
-/* console.log(languages); */
-
 
 function App() {
   const [active, setActive] = useState(0)
+
+  function handleClick(e) {
+    /* console.log(e.target); */
+    const newActive = Number(e.target.getAttribute("data-index"))
+    /* console.log(newActive); */
+    setActive(newActive)
+  }
 
   return (
     <>
@@ -16,16 +20,24 @@ function App() {
 
       <main>
         <div className="container">
-          <section className="container-button">
-            {languages.map((item) => (
-              <button className="button" key={item.id} >{item.title}</button>
-            ))}
-          </section>
+          <div className="container-button">
+            {languages.map((item, index) => (
+              <div>
+                <button className="button" key={item.id} onClick={handleClick} data-index={index}>
+                  {item.title}
+                </button>
 
-          <section className="card">
-            <h2 className="title">HTML</h2>
-            <p className="text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum, ipsum quam. Doloribus veniam, tempore iure perspiciatis vel beatae fuga ab inventore ipsa non culpa vitae sint ducimus cum officia quod?</p>
-          </section>
+                <div className={active == index ? "active" : "hide"}>
+                  <div className="card">
+                    <h2 className="title">{item.title}</h2>
+                    <div className="text">{item.description}</div>
+                  </div>
+                </div>
+              </div>
+
+            ))}
+          </div>
+
         </div>
       </main>
     </>
