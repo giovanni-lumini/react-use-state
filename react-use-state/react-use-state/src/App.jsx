@@ -27,12 +27,11 @@ function App() {
               </button>
             ))}
           </div>
-          <div className={active == index ? "active" : "hide"}>
-            <div className="card">
-              <h2 className="title">{item.title}</h2>
-              <div className="text">{item.description}</div>
-            </div>
+          <div className="card">
+            <h2 className="title">{languages[active].title}</h2>
+            <div className="text">{languages[active].description}</div>
           </div>
+
         </div>
       </main>
     </>
