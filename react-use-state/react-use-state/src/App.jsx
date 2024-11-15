@@ -22,22 +22,17 @@ function App() {
         <div className="container">
           <div className="container-button">
             {languages.map((item, index) => (
-              <div>
-                <button className="button" key={item.id} onClick={handleClick} data-index={index}>
-                  {item.title}
-                </button>
-
-                <div className={active == index ? "active" : "hide"}>
-                  <div className="card">
-                    <h2 className="title">{item.title}</h2>
-                    <div className="text">{item.description}</div>
-                  </div>
-                </div>
-              </div>
-
+              <button className="button" key={item.id} onClick={handleClick} data-index={index}>
+                {item.title}
+              </button>
             ))}
           </div>
-
+          <div className={active == index ? "active" : "hide"}>
+            <div className="card">
+              <h2 className="title">{item.title}</h2>
+              <div className="text">{item.description}</div>
+            </div>
+          </div>
         </div>
       </main>
     </>
